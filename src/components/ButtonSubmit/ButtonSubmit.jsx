@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './ButtonSubmit.css';
 import BeatLoader from "react-spinners/BeatLoader";
+import { useIsHome, useIsHomeUpdate } from '../../contexts/IsHomeContext';
 
-function ButtonSubmit({ song, artist, onSubmit, placeholder}) {
-
+function ButtonSubmit({ parentOnClick, placeholder}) {
     const [isDisabled, setIsDisabled] = useState(false);
-
-    const handleSubmit = () => {
-        setIsDisabled(() => true);
-        onSubmit({ song, artist });
+    const isHome = useIsHome();
+    
+    const handleMouseUp = () => {
+        parentOnClick();
+        setIsDisabled(true);
     }
 
     return (
         <button className='button' 
-        onClick={handleSubmit} 
         disabled={isDisabled}
         style={{width: !isDisabled ? '17rem' : '7rem'}}
+        onMouseUp={handleMouseUp}
         >
             {!isDisabled ? placeholder : <BeatLoader color={'#ffffff'} size={5} />}
         </button>

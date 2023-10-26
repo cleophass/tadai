@@ -4,12 +4,12 @@ import React, { useState } from "react";
 import "./App.css";
 import HomePage from "./components/HomePage/HomePage";
 import RecommendationPage from "./components/Recommendation/RecommendationPage";
+import { IsHomeProvider } from "./contexts/IsHomeContext";
 
 function App() {
-  const [page, setPage] = useState("home");
   const [recommendations, setRecommendations] = useState([]);
 
-  const handleSend = (data) => {
+  const handleAPICall = (data) => {
     // Simulez des données recommandées
     const simulatedRecommendations = [
       { artistName: "Becky G", songName: "Arranca (feat. Omega)" },
@@ -23,25 +23,15 @@ function App() {
       { artistName: "Calvin Harris & Sam Smith", songName: "Desire" },
       { artistName: "Doja Cat", songName: "Paint The Town Red" },
     ];
-
     setRecommendations(simulatedRecommendations);
-    console.log('done')
-  };
-
-  const handleBack = () => {
-    setPage("home");
   };
 
   return (
+    <IsHomeProvider>
       <div className="app-container">
-        {page === "home" && <HomePage onSend={handleSend} />}
-        {page === "recommendation" && (
-          <RecommendationPage
-            recommendations={recommendations}
-            onBack={handleBack}
-          />
-        )}
+        <HomePage parentOnClick={handleAPICall} />
       </div>
+    </IsHomeProvider>
   );
 }
 
