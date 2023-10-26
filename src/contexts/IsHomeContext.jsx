@@ -12,7 +12,7 @@ export const useIsHomeUpdate = () => {
 }
 
 export const IsHomeProvider = ({ children }) => {
-    const [isHome, setIsHome] = useState(true);
+    const [isHome, setIsHome] = useState(true); // change for debugging
 
     const toggleIsHome = () => {
         setIsHome(isHome => !isHome);

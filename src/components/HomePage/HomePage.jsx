@@ -4,23 +4,13 @@ import React, { useState } from 'react';
 import './HomePage.css';
 import TextInput from '../TextInput/TextInput';
 import ButtonSubmit from '../ButtonSubmit/ButtonSubmit';
-import { useIsHome, useIsHomeUpdate } from '../../contexts/IsHomeContext';
 
 function HomePage({ parentOnClick }) {
   const [artist, setArtist] = useState('');
   const [song, setSong] = useState('');
 
-  const toggleIsHome = useIsHomeUpdate();
-
-  // TODO: add a proper API call
   const handleSubmit = () => {
-    setTimeout(() => {
-      parentOnClick(artist, song);
-      console.log('API responded')
-      toggleIsHome();
-    }, 2000);
-
-    
+    parentOnClick(artist, song); 
   };
 
   return (

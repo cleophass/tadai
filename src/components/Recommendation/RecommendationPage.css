@@ -1,8 +1,18 @@
 /* src/components/RecommendationPage.css */
 
-.recommendation-container {
-  padding: 20px;
-  font-family: "Montserrat", sans-serif;
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+
+  background: linear-gradient(to bottom, #010311, 60%, #00010f);
+}
+
+.animation-container {
+  margin: auto auto;
+  transition: all 2s ease-in-out;
 }
 
 .recommendation-table {
