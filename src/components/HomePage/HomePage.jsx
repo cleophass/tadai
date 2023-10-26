@@ -1,35 +1,37 @@
 // src/components/HomePage.jsx
 
-import React, { useState } from "react";
-import "./HomePage.css";
+import React, { useState } from 'react';
+import './HomePage.css';
+import TextInput from '../TextInput/TextInput';
+import ButtonSubmit from '../ButtonSubmit/ButtonSubmit';
 
 function HomePage({ onSend }) {
-  const [artist, setArtist] = useState("");
-  const [song, setSong] = useState("");
+  const [artist, setArtist] = useState('');
+  const [song, setSong] = useState('');
 
   const handleSubmit = () => {
-    onSend({ artist, song });
+    //wait 2s
+    setTimeout(() => {
+      onSend({ artist, song });
+    }, 2000);
   };
 
   return (
-    <div className="home-container">
-      <input
-        type="text"
-        placeholder="Artiste"
-        value={artist}
-        onChange={(e) => setArtist(e.target.value)}
-        className="input-field"
-      />
-      <input
-        type="text"
-        placeholder="Chanson"
-        value={song}
-        onChange={(e) => setSong(e.target.value)}
-        className="input-field"
-      />
-      <button onClick={handleSubmit} className="send-button">
-        Envoyer
-      </button>
+    <div className='home-container'>
+      <img className='img-background' src='src\assets\SERGEY ZABELIN, DIGITAL ART, NATURE WALLPAPER.jpg'/>
+      <div className='brand'>TADAI</div>
+      <div className='content'>
+        <div className='title-container'>
+          <div className='title'>Be adventurous</div>
+          <div className='subtitle'>Discover your new favorite songs</div>
+        </div>
+        <div className='form-container'>
+          <TextInput setState={setSong} placeholder={'Enter a song name'}/>
+          <TextInput setState={setArtist} placeholder={'Enter an artist'}/>
+          <ButtonSubmit onSubmit={handleSubmit} placeholder={'Recommend songs'}/>
+        </div>
+      </div>
+      <div className='footer-fade'></div>
     </div>
   );
 }

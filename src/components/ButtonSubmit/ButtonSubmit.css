@@ -1,0 +1,45 @@
+.button {
+    font-family: 'Mukta', sans-serif;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    background-color: rgba(71, 174, 218, 0.75);
+    height: 3.5rem;
+    width: 17rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 0.15rem solid rgba(255, 255, 255, 0.5);
+    border-radius: 10rem;
+
+    font-size: 0.85rem;
+    color:white;
+    font-weight: 500;
+    letter-spacing: 0.145rem;
+
+    transition: all 0.2s ease-in-out;
+
+    &:not([disabled]):hover {
+        outline: none;
+        background-color: rgba(71, 174, 218, 1);
+        border: 0.15rem solid rgba(255, 255, 255, 1);
+        transform: scale(1.02);
+    }
+
+    &:not([disabled]):active {
+        outline: none;
+        transform: scale(0.98);
+    }
+
+    &:not([disabled]):focus {
+        outline: none;
+    }
+}
+
+.button:disabled {
+    cursor: not-allowed;
+}

@@ -25,7 +25,7 @@ function App() {
     ];
 
     setRecommendations(simulatedRecommendations);
-    setPage("recommendation");
+    console.log('done')
   };
 
   const handleBack = () => {
@@ -33,11 +33,6 @@ function App() {
   };
 
   return (
-    <div>
-      <div className="app-header">
-        <h1 className="app-title">Tadai</h1>
-        <img src="/logo.png" alt="Logo" className="logo" />
-      </div>
       <div className="app-container">
         {page === "home" && <HomePage onSend={handleSend} />}
         {page === "recommendation" && (
@@ -47,7 +42,6 @@ function App() {
           />
         )}
       </div>
-    </div>
   );
 }
 
