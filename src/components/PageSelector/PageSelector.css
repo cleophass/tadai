@@ -3,7 +3,7 @@
     overflow: hidden;
   }
   
-  .home-container {
-    position:absolute;
-    transition: all 1.5s ease-in-out;
-  }
+.home-container {
+  position: absolute;
+  transition: all 1.5s ease-in-out;
+}

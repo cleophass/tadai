@@ -36,22 +36,25 @@ const PageSelector = () => {
                 setShowHome(false);
             }, 1600)
         }, 2000);
-
-
     };
+
+    const handleBackToHome = () => {
+        toggleHomePage();
+        setShowHome(true);
+    }
 
     React.useEffect(() => {console.log(homePage)}, [homePage]) // debug
 
     return (
         <div className="container">
             {
-                showHome ? 
+                showHome ?
                 <div className="home-container" style={{transform: homePage ? 'translateY(0)' : 'translateY(-100vh)', opacity: homePage ? '100%' : '0%'}}>
                     <HomePage parentOnClick={handleAPICall} />
                 </div>
                 :
                 <div>
-                    <RecommendationPage recommendations={simulatedRecommendations}/>
+                    <RecommendationPage recommendations={simulatedRecommendations} parentOnClick={handleBackToHome} />
                 </div>
             }
         </div>

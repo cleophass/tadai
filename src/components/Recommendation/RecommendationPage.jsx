@@ -3,7 +3,7 @@
 import React from "react";
 import "./RecommendationPage.css";
 
-function RecommendationPage({ recommendations }) {
+function RecommendationPage({ recommendations, parentOnClick }) {
   const [justLoaded, setJustLoaded] = React.useState(false);
 
   React.useEffect(() => { // just animation purposes
@@ -16,8 +16,8 @@ function RecommendationPage({ recommendations }) {
   return (
     <div className="container">
       <div className="animation-container" style={{opacity: justLoaded ? '100%' : '0%'}}>
-        <button className="back-button">
-          Retour
+        <button className="back-button" onMouseUp={parentOnClick}>
+          <a className="back-title">Take me back to home page</a>
         </button>
         <table className="recommendation-table">
           <thead>
