@@ -1,16 +1,13 @@
 // src/components/HomePage.jsx
 
-import React, { useState } from 'react';
+import React from 'react';
 import './HomePage.css';
 import TextInput from '../TextInput/TextInput';
 import ButtonSubmit from '../ButtonSubmit/ButtonSubmit';
 
-function HomePage({ parentOnClick }) {
-  const [artist, setArtist] = useState('');
-  const [song, setSong] = useState('');
-
+function HomePage({ parentOnClick, parentSetSong, parentSetArtist }) {
   const handleSubmit = () => {
-    parentOnClick(artist, song); 
+    parentOnClick(); 
   };
 
   return (
@@ -23,8 +20,8 @@ function HomePage({ parentOnClick }) {
           <div className='subtitle'>Discover your new favorite songs</div>
         </div>
         <div className='form-container'>
-          <TextInput setState={setSong} placeholder={'Enter a song name'}/>
-          <TextInput setState={setArtist} placeholder={'Enter an artist'}/>
+          <TextInput setState={parentSetSong} placeholder={'Enter a song name'}/>
+          <TextInput setState={parentSetArtist} placeholder={'Enter an artist'}/>
           <ButtonSubmit parentOnClick={handleSubmit} placeholder={'Recommend songs'}/>
         </div>
       </div>

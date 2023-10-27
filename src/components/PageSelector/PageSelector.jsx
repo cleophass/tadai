@@ -20,6 +20,8 @@ const PageSelector = () => {
         { artistName: "Doja Cat", songName: "Paint The Town Red" },
         ];
     const [showHome, setShowHome] = useState(true);
+    const [artist, setArtist] = useState("");
+    const [song, setSong] = useState("");
 
     const homePage = useIsHome();
     const toggleHomePage = useIsHomeUpdate();
@@ -50,11 +52,11 @@ const PageSelector = () => {
             {
                 showHome ?
                 <div className="home-container" style={{transform: homePage ? 'translateY(0)' : 'translateY(-100vh)', opacity: homePage ? '100%' : '0%'}}>
-                    <HomePage parentOnClick={handleAPICall} />
+                    <HomePage parentOnClick={handleAPICall} parentSetSong={setSong} parentSetArtist={setArtist}/>
                 </div>
                 :
                 <div>
-                    <RecommendationPage recommendations={simulatedRecommendations} parentOnClick={handleBackToHome} />
+                    <RecommendationPage parentSong={song} parentArtist={artist} recommendations={simulatedRecommendations} parentOnClick={handleBackToHome} />
                 </div>
             }
         </div>
