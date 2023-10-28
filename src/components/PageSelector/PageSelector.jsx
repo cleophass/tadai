@@ -19,6 +19,7 @@ const PageSelector = () => {
         { artistName: "Calvin Harris & Sam Smith", songName: "Desire" },
         { artistName: "Doja Cat", songName: "Paint The Town Red" },
         ];
+    const [formattedRecommendations, setFormattedRecommendations] = useState(simulatedRecommendations);
     const [showHome, setShowHome] = useState(true);
     const [artist, setArtist] = useState("");
     const [song, setSong] = useState("");
@@ -27,17 +28,62 @@ const PageSelector = () => {
     const toggleHomePage = useIsHomeUpdate();
 
 
-    // TODO: replace this with API call but keep the nested timeout for animation
     const handleAPICall = () => {
-        setTimeout(() => {
-            toggleHomePage();
-            console.log('API responded')
 
-            // keep this for animation
+        const maxTimeout = 350000;
+        console.log('API call started.');
+        const apiCallPromise = fetch('http://13.38.95.183/predict?title=Stole%20the%20show&artist=Kygo&nb_of_recommendations=10')
+            .then(response => response.json())
+            .then(data => {
+                // Check if the API response contains data
+                if (data && data.data) {
+                    // Parse the data field, which is a string of JSON
+                    const recommendations = JSON.parse(data.data);
+
+                    // Format the recommendations to match your desired structure
+                    const formattedRecommendations = recommendations.map(item => ({
+                        artistName: item.Artist,
+                        songName: item.Name,
+                    }));
+
+                    // Now, you can use formattedRecommendations for rendering
+                    console.log('Formatted Recommendations:', formattedRecommendations);
+                    setFormattedRecommendations(formattedRecommendations);
+                    // Render the recommendations or update your component state here
+                } else {
+                    console.error('API response does not contain data field.');
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching data from the API:', error);
+            });
+        
+        const TimeoutPromise = new Promise((resolve, reject) => {
             setTimeout(() => {
-                setShowHome(false);
-            }, 1600)
-        }, 2000);
+                reject('Request timed out the query is more than 35 seconds');
+            }, maxTimeout);
+        });
+
+        Promise.race([apiCallPromise, TimeoutPromise])
+            .finally(() => {
+                // This will always run, regardless of the result
+                console.log('API call completed.');
+                toggleHomePage();
+                setTimeout(() => {
+                    setShowHome(false);
+                }, 1600)
+            });
+
+        // keep this for animation
+        // setTimeout(() => {
+        //     toggleHomePage();
+        //     console.log('API will respond in any moment...')
+
+        //     // keep this for animation
+        //     setTimeout(() => {
+        //         setShowHome(false);
+        //     }, 1600)
+        // }, 2000);
     };
 
     const handleBackToHome = () => {
@@ -56,7 +102,7 @@ const PageSelector = () => {
                 </div>
                 :
                 <div>
-                    <RecommendationPage parentSong={song} parentArtist={artist} recommendations={simulatedRecommendations} parentOnClick={handleBackToHome} />
+                    <RecommendationPage parentSong={song} parentArtist={artist} recommendations={formattedRecommendations} parentOnClick={handleBackToHome} />
                 </div>
             }
         </div>
