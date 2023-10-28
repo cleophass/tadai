@@ -31,8 +31,15 @@ const PageSelector = () => {
     const handleAPICall = () => {
 
         const maxTimeout = 350000;
-        console.log('API call started.');
-        const apiCallPromise = fetch('http://13.38.95.183/predict?title=Stole%20the%20show&artist=Kygo&nb_of_recommendations=10')
+        console.log('API call started. With following parameters: ');
+        console.log('Song: ', song);
+        console.log('Artist: ', artist);
+
+        const numberOfRecommendations = 10; // Replace with your desired number of recommendations
+        const apiUrl = `http://13.38.95.183/predict?title=${encodeURIComponent(song)}&artist=${encodeURIComponent(artist)}&nb_of_recommendations=${numberOfRecommendations}`;
+
+
+        const apiCallPromise = fetch(apiUrl)
             .then(response => response.json())
             .then(data => {
                 // Check if the API response contains data
