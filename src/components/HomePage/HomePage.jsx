@@ -12,7 +12,7 @@ function HomePage({ parentOnClick, parentSetSong, parentSetArtist }) {
 
   return (
     <div className='home-container'>
-      <img className='img-background' src='./src/assets/SERGEY ZABELIN, DIGITAL ART, NATURE WALLPAPER.jpg'/>
+      <img className='img-background' src='https://wallup.net/wp-content/uploads/2018/03/19/552659-Sergey_Zabelin-digital_art-nature-landscape-hills-clouds-mountains-snowy_peak-night-stars-rock-church-villages-valley-plants-fantasy_art.jpg'/>
       <div className='brand'>TADAI</div>
       <div className='content'>
         <div className='title-container'>
