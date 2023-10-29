@@ -1,31 +1,32 @@
 .input {
-    font-family: 'Mukta', sans-serif;
-    
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  font-family: "Mukta", sans-serif;
 
-    background-color: rgba(0, 0, 0, 0.54);
-    height: 2.6rem;
-    width: 20rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 
-    border: 0.15rem solid rgba(255, 255, 255, 0.5);
-    border-radius: 10rem;
+  background-color: rgba(0, 0, 0, 0.54);
+  height: 2.6rem;
+  width: 20rem;
 
-    padding: 0rem 1.5rem 0rem 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.145rem;
+  border: 0.15rem solid rgba(255, 255, 255, 0.5);
+  border-radius: 10rem;
 
+  padding: 0rem 1.5rem 0rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.145rem;
 
-    transition: all 0.3s ease-in-out;
+  color: white;
+
+  transition: all 0.3s ease-in-out;
 }
 
 .input:focus {
-    outline: none;
-    border: 0.15rem solid rgba(255, 255, 255, 1);
+  outline: none;
+  border: 0.15rem solid rgba(255, 255, 255, 1);
 }
 
 .input::placeholder {
-    font-size: 0.9rem;
+  font-size: 0.9rem;
 }
