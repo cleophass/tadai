@@ -41,7 +41,10 @@ const PageSelector = () => {
 
         const apiCallPromise = fetch(apiUrl, {
             method: 'GET',
-            mode: 'cors'
+            mode: 'cors',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
         })
             .then(response => response.json())
             .then(data => {
