@@ -36,7 +36,7 @@ const PageSelector = () => {
         console.log('Artist: ', artist);
 
         const numberOfRecommendations = 10; // Replace with your desired number of recommendations
-        const apiUrl = `http://13.38.95.183/predict?title=${encodeURIComponent(song)}&artist=${encodeURIComponent(artist)}&nb_of_recommendations=${numberOfRecommendations}`;
+        const apiUrl = `https://13.38.95.183/predict?title=${encodeURIComponent(song)}&artist=${encodeURIComponent(artist)}&nb_of_recommendations=${numberOfRecommendations}`;
 
 
         const apiCallPromise = fetch(apiUrl)
