@@ -39,7 +39,10 @@ const PageSelector = () => {
         const apiUrl = `https://13.38.95.183/predict?title=${encodeURIComponent(song)}&artist=${encodeURIComponent(artist)}&nb_of_recommendations=${numberOfRecommendations}`;
 
 
-        const apiCallPromise = fetch(apiUrl)
+        const apiCallPromise = fetch(apiUrl, {
+            method: 'GET',
+            mode: 'cors'
+        })
             .then(response => response.json())
             .then(data => {
                 // Check if the API response contains data
