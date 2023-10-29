@@ -12,7 +12,7 @@ function HomePage({ parentOnClick, parentSetSong, parentSetArtist }) {
 
   return (
     <div className='home-container'>
-      <img className='img-background' src='src\assets\SERGEY ZABELIN, DIGITAL ART, NATURE WALLPAPER.jpg'/>
+      <img className='img-background' src='./src/assets/SERGEY ZABELIN, DIGITAL ART, NATURE WALLPAPER.jpg'/>
       <div className='brand'>TADAI</div>
       <div className='content'>
         <div className='title-container'>
