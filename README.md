@@ -6,6 +6,11 @@ Welcome to the TADAI Camp Music Recommendation Frontend! 🚀 This is where you'
 
 At TADAI Camp, we believe in making your music discovery experience smooth and enjoyable. Our React-based frontend is designed with you in mind, offering a user-friendly interface to explore the world of music.
 
+## Watch Our Presentation Video
+
+[![Watch Our Presentation Video](https://img.youtube.com/vi/XY3lPJDG1sE/0.jpg)](https://youtu.be/XY3lPJDG1sE)
+
+
 ## Features 🌟
 
 - 📱 Intuitive UI: We've created a sleek and user-friendly interface that makes music exploration a breeze.
